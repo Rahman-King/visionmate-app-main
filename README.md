@@ -1,8 +1,54 @@
-Team Visionx 🤟 – Smart Navigation & Object Detection AssistantEmpowering the Visually Impaired through AI-Driven Spatial Awareness.📖 Table of ContentsOverviewKey FeaturesHow It WorksInstallationDeployment (Streamlit Cloud)Tech StackFuture RoadmapLicense🔍 OverviewTeam Visionx is an assistive technology web application designed to help visually impaired individuals navigate their surroundings. Using a custom-trained YOLO model, the app identifies hazards, moving objects, and clear paths, providing real-time Smart Navigation instructions via voice feedback.The goal is simple: Convert visual data into actionable audio guidance.✨ Key FeaturesSmart Navigation Brain: Beyond just naming objects, the app calculates object positions (Left, Center, Right) and provides instructions (e.g., "Car on the left. Move right.").Priority Detection: Danger classes (knives, fire, guns) are prioritized in the audio queue over standard objects.Triple Input Support: Works with live Webcams, uploaded images, and video files.Voice Feedback System: Built-in speech synthesis with a smart cooldown to prevent "audio clutter."Dynamic Dashboard: Real-time confidence sliders and toggleable settings for a personalized experience.🧠 How It WorksThe app divides the camera frame into three vertical sectors:Left: $0\%$ to $33\%$ of frame width.Center: $33\%$ to $66\%$ of frame width (Triggering "Stop" commands).Right: $66\%$ to $100\%$ of frame width.If a "Danger" or "Moving" object enters the Center zone, the app immediately issues a "Stop" or "Move" instruction based on the clearest path available.🛠 Installation1. Clone the repositoryBashgit clone https://github.com/yourusername/visionx-app.git
+# Team Visionx 🤟 – Smart Navigation & Object Detection Assistant
+
+**Empowering the Visually Impaired through AI-Driven Spatial Awareness.**
+
+---
+
+## 📖 Table of Contents
+* [Overview](#overview)
+* [Key Features](#key-features)
+* [How It Works](#how-it-works)
+* [Installation](#installation)
+* [Deployment](#deployment)
+* [Configuration](#configuration)
+* [License](#license)
+
+---
+
+## 🔍 Overview
+**Team Visionx** is an assistive technology application designed to provide real-time spatial awareness for the visually impaired. Built using **Streamlit** and **YOLOv8**, the app acts as a "digital eye," identifying objects in the environment and translating their position into actionable voice instructions.
+
+The project moves beyond simple labeling—it calculates the proximity and orientation of objects to guide users safely around obstacles.
+
+---
+
+## ✨ Key Features
+* **Smart Navigation Brain**: Logic-based pathfinding that tells users to "Move Left," "Move Right," or "Stop" based on object position.
+* **Danger Prioritization**: High-risk items (knives, fire, vehicles) are announced with higher priority than static objects.
+* **Triple Input Support**: Process live data via **Webcam**, or analyze pre-recorded **Images** and **Videos**.
+* **Voice Feedback System**: Integrated speech synthesis with a smart cooldown to prevent overlapping audio.
+* **Interactive Dashboard**: Real-time confidence sliders and a user-friendly sidebar for navigation settings.
+
+---
+
+## 🧠 How It Works (The Logic)
+The app divides the visual field into three distinct zones to help the user navigate:
+1. **Left Zone**: (0% - 33% of frame width)
+2. **Center Zone**: (33% - 66% of frame width) - *Triggers critical stop commands.*
+3. **Right Zone**: (66% - 100% of frame width)
+
+
+
+**Priority Levels:**
+- **Level 1 (Danger):** Weapons, Fire, Sharp objects.
+- **Level 2 (Moving):** People, Cars, Bicycles.
+- **Level 3 (Static):** Chairs, Tables, Doors.
+
+---
+
+## 🛠 Installation
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/yourusername/visionx-app.git](https://github.com/yourusername/visionx-app.git)
 cd visionx-app
-2. Create a virtual environmentBashpython -m venv venv
-source venv/bin/activate  # Linux/macOS
-# OR
-venv\Scripts\activate     # Windows
-3. Install dependenciesBashpip install -r requirements.txt
-4. Add your ModelPlace your trained best.pt file in the root directory.☁️ Deployment (Streamlit Cloud)To run Visionx on the web, ensure your repository contains these files:app.py: The main Python script.requirements.txt: Include ultralytics, opencv-python-headless, and numpy.packages.txt: (Important for Linux audio) Include espeak and freeglut3-dev.best.pt: Your YOLO weights.💻 Tech StackCore: Python 3.9+AI Model: YOLO (Ultralytics)Interface: StreamlitComputer Vision: OpenCVSpeech: eSpeak / Subprocess / Web Speech API🚀 Future RoadmapHaptic Feedback: Integration with mobile vibration API for non-audio alerts.Depth Estimation: Implementing MiDaS to calculate exactly how many meters away an object is.GPS Integration: Real-time map navigation paired with local object detection.⚖️ LicenseThis project is open-source. We believe assistive technology should be accessible to everyone. Feel free to fork, modify, and improve!Team Visionx 💙 – Seeing the world differently.
