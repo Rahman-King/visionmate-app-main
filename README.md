@@ -46,9 +46,4 @@ The app divides the visual field into three distinct zones to help the user navi
 
 ---
 
-## 🛠 Installation
-
-### 1. Clone the repository
-```bash
-git clone [https://github.com/yourusername/visionx-app.git](https://github.com/yourusername/visionx-app.git)
-cd visionx-app
+**Team Visionx 💙 – Seeing the world differently, one frame at a time.**
