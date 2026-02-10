@@ -41,7 +41,7 @@ confidence = st.sidebar.slider("Confidence Threshold", 0.1, 1.0, 0.5, 0.05)
 voice_enabled = st.sidebar.toggle("🔊 Enable Voice", value=True)
 
 # ------------------ SPEECH ------------------
-xdef speak_phrase(text):
+def speak_phrase(text):
     if voice_enabled and text:
         try:
             # -v en: English voice
